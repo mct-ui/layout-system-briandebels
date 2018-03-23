@@ -68,6 +68,7 @@ h1 {
 }
 
 /* Example inline media query */
+
 @media (min-width: 768px) {
     h1 {
         font-size: 58px;
@@ -87,31 +88,21 @@ h3 {
     margin: 0 0 24px;
 }
 
-h4,
-h5,
-h6 {
+h4, h5, h6 {
     font-size: 16px;
     line-height: 24px;
     margin: 0 0 24px;
 }
 
-p,
-ol,
-ul,
-dl,
-table,
-address,
-figure {
+p, ol, ul, dl, table, address, figure {
     margin: 0 0 24px;
 }
 
-ul,
-ol {
+ul, ol {
     padding-left: 24px;
 }
 
-li ul,
-li ol {
+li ul, li ol {
     margin-bottom: 0;
 }
 
@@ -147,13 +138,11 @@ a {
     transition: all .1s ease-in-out;
 }
 
-a:visited,
-a:active {
+a:visited, a:active {
     color: BlueViolet;
 }
 
-a:hover,
-a:focus {
+a:hover, a:focus {
     color: Crimson;
 }
 
@@ -162,10 +151,43 @@ a:focus {
 \*------------------------------------*/
 
 /*
-    Object: Object name
+    Objects: Row
     ---
-    Object description
+    Creates a horizontal row that stretches the viewport and adds padding around children
 */
+
+.o-row {
+    overflow: auto;
+    padding: 24px 24px 0;
+}
+
+.o-row--primary {
+    background-color: #e85e00;
+    color: #fff;
+}
+
+.o-row--grey-dark {
+    background-color: #111;
+    color: #fff;
+}
+
+@media (min-width: 768px) {
+    .o-row--lg {
+        padding: 48px 48px 24px;
+    }
+}
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+    max-width: 90em;
+    /* 1440px/16=90*/
+    margin: 0 auto;
+}
 
 /*------------------------------------*\
   #COMPONENTS
@@ -188,7 +210,23 @@ a:focus {
 */
 
 .u-max-width-sm {
-    max-width: 36em;
+    max-width: 36em !important;
+}
+
+.u-max-width-md {
+    max-width: 45em !important;
+}
+
+.u-max-width-lg {
+    max-width: 60em !important;
+}
+
+.u-max-width-xl {
+    max-width: 75em !important;
+}
+
+.u-max-width-none {
+    max-width: none !important;
 }
 
 /*
@@ -237,9 +275,7 @@ a:focus {
 */
 
 @media print {
-    *,
-    *:before,
-    *:after {
+    *, *:before, *:after {
         background: transparent !important;
         color: #000 !important;
         /* Black prints faster:
@@ -247,8 +283,7 @@ a:focus {
         box-shadow: none !important;
         text-shadow: none !important;
     }
-    a,
-    a:visited {
+    a, a:visited {
         text-decoration: underline;
     }
     a[href]:after {
@@ -261,15 +296,13 @@ a:focus {
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
      */
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
+    a[href^="#"]:after, a[href^="javascript:"]:after {
         content: "";
     }
     pre {
         white-space: pre-wrap !important;
     }
-    pre,
-    blockquote {
+    pre, blockquote {
         border: 1px solid #999;
         page-break-inside: avoid;
     }
@@ -280,18 +313,14 @@ a:focus {
     thead {
         display: table-header-group;
     }
-    tr,
-    img {
+    tr, img {
         page-break-inside: avoid;
     }
-    p,
-    h2,
-    h3 {
+    p, h2, h3 {
         orphans: 3;
         widows: 3;
     }
-    h2,
-    h3 {
+    h2, h3 {
         page-break-after: avoid;
     }
 }
